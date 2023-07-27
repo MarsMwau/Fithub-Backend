@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  # Routes for workout plans
   resources :workout_plans
+ resources :exercises
+  get 'users/index'
+  get 'users/show'
+  get 'users/update'
+  get 'users/destroy'
 
-  # Additional routes
-  # ...
+  resources :users
 end

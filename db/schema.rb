@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2023_07_26_131244) do
     t.integer "reps"
     t.boolean "status"
     t.integer "calories_burned"
-    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
