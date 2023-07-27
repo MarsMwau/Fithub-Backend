@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post '/login', to: "v1/sessions#create"
+  delete '/logout', to: "v1/sessions#destroy"
   resources :workout_plans
  resources :exercises
   get 'users/index'
@@ -7,4 +9,5 @@ Rails.application.routes.draw do
   get 'users/destroy'
 
   resources :users
+
 end
