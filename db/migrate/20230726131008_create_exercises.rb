@@ -10,7 +10,6 @@ class CreateExercises < ActiveRecord::Migration[6.1]
       t.integer :reps
       t.boolean :status
       t.integer :calories_burned
-      t.date :date
 
       t.timestamps
     end
