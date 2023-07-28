@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  post '/login', to: "v1/sessions#create"
-  delete '/logout', to: "v1/sessions#destroy"
+  post '/signup', to: "users#create"
+  post '/login', to: "sessions#create"
+  delete '/logout', to: "sessions#destroy"
   resources :workout_plans
  resources :exercises
-  get 'users/index'
-  get 'users/show'
-  get 'users/update'
-  get 'users/destroy'
-
-  resources :users
+ resources :users do
+  member do
+    get :show_workout_plan
+  end
+end
 
 end
