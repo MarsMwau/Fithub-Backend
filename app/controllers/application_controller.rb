@@ -1,19 +1,25 @@
-# app/controllers/application_controller.rb
-module V1
 class ApplicationController < ActionController::API
-    include ActionController::Cookies
-    before_action :authenticate_user
+  include ActionController::Cookies
+  before_action :authenticate_user, except: [:new, :create]
   
-    def current_user
-      return unless cookies.signed[:jwt]
-  
-      token = cookies.signed[:jwt]
-      payload = JwtToken.decode(token)
-      @current_user ||= User.find_by(id: payload['user_id'])
-    end
-  
-    def authenticate_user
-      render json: { errors: ['Unauthorized'] }, status: :unauthorized unless current_user
-    end
+  def current_user
+    return unless bearer_token
+    
+    token = bearer_token
+    secret_key = ENV['SECRET_KEY'] # Retrieve the secret key from the environment
+    payload = JWT.decode(token, secret_key, true, { algorithm: 'HS256' })
+    @current_user ||= User.find_by(id: payload[0]['user_id'])
+  rescue JWT::DecodeError, JWT::ExpiredSignature
+    nil
   end
   
+  def authenticate_user
+    render json: { errors: ['Unauthorized'] }, status: :unauthorized unless current_user
+  end
+
+  def bearer_token
+    pattern = /^Bearer /
+    header  = request.headers['Authorization']
+    header.gsub(pattern, '') if header && header.match(pattern)
+  end
+end

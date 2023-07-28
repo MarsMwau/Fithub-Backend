@@ -1,3 +1,3 @@
 class WeightTrackingSerializer < ActiveModel::Serializer
-  attributes :weight,:date
+  attributes :weight, :date
 end
