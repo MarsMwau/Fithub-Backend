@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
     return unless bearer_token
     
     token = bearer_token
-    secret_key = ENV['SECRET_KEY'] # Retrieve the secret key from the environment
+    secret_key = ENV['SECRET_KEY']
     payload = JWT.decode(token, secret_key, true, { algorithm: 'HS256' })
     @current_user ||= User.find_by(id: payload[0]['user_id'])
   rescue JWT::DecodeError, JWT::ExpiredSignature

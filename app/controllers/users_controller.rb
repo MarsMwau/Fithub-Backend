@@ -10,15 +10,18 @@ class UsersController < ApplicationController
     end
   end
 
+
   def index
     users = User.all
     render json: users, include: [:weight_trackings, :workout_plans]
   end
 
   def show
-    user = User.includes(:workout_plans => :exercise).find(params[:id])
-    render json: user
+    user = User.includes(weight_trackings: {}, workout_plans: :exercises).find(params[:id])
+    render json: user.to_json(include: { weight_trackings: {}, workout_plans: { include: :exercises } })
   end
+  
+  
 
   def update
     @user = User.find(params[:id])

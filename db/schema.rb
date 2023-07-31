@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_26_131244) do
+ActiveRecord::Schema.define(version: 2023_07_29_143354) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "exercise_name"
@@ -20,10 +20,17 @@ ActiveRecord::Schema.define(version: 2023_07_26_131244) do
     t.integer "duration"
     t.integer "sets"
     t.integer "reps"
-    t.boolean "status"
     t.integer "calories_burned"
+    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "exercises_workout_plans", id: false, force: :cascade do |t|
+    t.integer "workout_plan_id", null: false
+    t.integer "exercise_id", null: false
+    t.index ["exercise_id", "workout_plan_id"], name: "index_exercises_workout_plans_on_exercise_id_and_workout_plan_id"
+    t.index ["workout_plan_id", "exercise_id"], name: "index_exercises_workout_plans_on_workout_plan_id_and_exercise_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,15 +57,12 @@ ActiveRecord::Schema.define(version: 2023_07_26_131244) do
 
   create_table "workout_plans", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "exercise_id", null: false
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["exercise_id"], name: "index_workout_plans_on_exercise_id"
     t.index ["user_id"], name: "index_workout_plans_on_user_id"
   end
 
   add_foreign_key "weight_trackings", "users"
-  add_foreign_key "workout_plans", "exercises"
   add_foreign_key "workout_plans", "users"
 end
