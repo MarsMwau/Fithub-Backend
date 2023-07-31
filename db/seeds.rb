@@ -19,10 +19,10 @@ require 'faker'
     duration: Faker::Number.between(from: 10, to: 60),
     sets: Faker::Number.between(from: 1, to: 5),
     reps: Faker::Number.between(from: 5, to: 20),
-    status: [true, false].sample,
-    calories_burned: Faker::Number.between(from: 50, to: 500)
+    calories_burned: Faker::Number.between(from: 50, to: 500),
+    status: [true, false].sample
   )
-  puts "complete seeding exercise"
+  puts "Completed seeding exercise"
 end
 
 # Create fake users
@@ -37,7 +37,7 @@ end
     initial_weight: Faker::Number.between(from: 50, to: 100),
     target_weight: Faker::Number.between(from: 45, to: 90)
   )
-  puts "complete seeding user"
+  puts "Completed seeding user"
 end
 
 # Create fake weight tracking data
@@ -49,7 +49,7 @@ users.each do |user|
       weight: Faker::Number.between(from: 50, to: 100),
       date: Faker::Date.backward(days: 30)
     )
-    puts "complete seeding weight tracking"
+    puts "Completed seeding weight tracking"
   end
 end
 
@@ -59,9 +59,9 @@ users.each do |user|
     exercise = Exercise.all.sample
     WorkoutPlan.create!(
       user_id: user.id,
-      exercise_id: exercise.id,
-      date: Faker::Date.forward(days: 15)
+      date: Faker::Date.forward(days: 15),
+      exercise_ids: Exercise.pluck(:id).sample(3) # Select 3 random exercise IDs from all available exercises
     )
-    puts "complete seeding workout plan"
+    puts "Completed seeding workout plan"
   end
 end
