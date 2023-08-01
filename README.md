@@ -26,13 +26,6 @@ Fithub is a centralized platform designed to help individuals maintain a consist
 - Push to the branch (git push origin improve-app)
 - Create a Pull request
 * Open the folder location on terminal and use the following command to run app:
-
-## How To Run It
->  $ pip install -r requirements.txt
-To install all requirements
-
-> $ python3 manage.py runserver
-Then run server with the above command
 *****
 ## Live Link
 Or you can access the web application directly via this [LINK.](link.com/)
