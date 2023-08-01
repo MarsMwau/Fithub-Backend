@@ -1,46 +1,43 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
 
-  # POST /users
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created
+    user = User.new(user_params)
+    if user.save
+      token = JWT.encode({ user_id: user.id }, ENV['SECRET_KEY'], 'HS256') 
+      render json: { user: user, token: token }, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
-  # GET /users/:id
-  def show
-    render json: @user, include: [:weight_trackings, :workout_plans]
+
+  def index
+    users = User.all
+    render json: users, include: [:weight_trackings, :workout_plans]
   end
 
-  # PATCH/PUT /users/:id
+  def show
+    user = User.includes(weight_trackings: {}, workout_plans: :exercises).find(params[:id])
+    render json: user.to_json(include: { weight_trackings: {}, workout_plans: { include: :exercises } })
+  end
+  
+  
+
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
-  end
-
-  # DELETE /users/:id
-  def destroy
-    @user.destroy
-    head :no_content
-  end
+  end  
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   def user_params
-    params.require(:user).permit(:username, :password, :email, :age, :gender, :height, :initial_weight, :target_weight)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :age, :gender, :height, :initial_weight, :target_weight)
   end
+  
 end
 
 
