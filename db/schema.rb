@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_29_143354) do
+ActiveRecord::Schema.define(version: 2023_08_01_081948) do
+
+  create_table "calorie_intakes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "calorie_intake"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_calorie_intakes_on_user_id"
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string "exercise_name"
@@ -63,6 +72,7 @@ ActiveRecord::Schema.define(version: 2023_07_29_143354) do
     t.index ["user_id"], name: "index_workout_plans_on_user_id"
   end
 
+  add_foreign_key "calorie_intakes", "users"
   add_foreign_key "weight_trackings", "users"
   add_foreign_key "workout_plans", "users"
 end

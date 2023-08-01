@@ -65,3 +65,15 @@ users.each do |user|
     puts "Completed seeding workout plan"
   end
 end
+
+# Create fake calorie intake data
+users.each do |user|
+  5.times do
+    CalorieIntake.create!(
+      user_id: user.id,
+      calorie_intake: Faker::Number.between(from: 1000, to: 3000),
+      date: Faker::Date.backward(days: 30)
+    )
+    puts "Completed seeding calorie intake"
+  end
+end
