@@ -77,3 +77,6 @@ users.each do |user|
     puts "Completed seeding calorie intake"
   end
 end
+
+
+
