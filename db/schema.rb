@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2023_08_01_081948) do
 
   create_table "calorie_intakes", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "calorie_intake"
+    t.integer "calories"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2023_08_01_081948) do
     t.string "image"
     t.string "exercise_type"
     t.string "body_part"
+    t.string "exercise_description"
     t.integer "duration"
     t.integer "sets"
     t.integer "reps"
     t.integer "calories_burned"
-    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2023_08_01_081948) do
   create_table "workout_plans", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "date"
+    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_workout_plans_on_user_id"
