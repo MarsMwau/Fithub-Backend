@@ -36,12 +36,12 @@ class WorkoutPlansController < ApplicationController
       render json: { error: "Exercise or workout plan not found" }, status: :not_found
     end
   end
-  
 
   def remove_exercise
+    exercise_id = params[:exercise_id] # Correctly extract exercise_id from params
     workout_plan = current_user.workout_plans.find(params[:id])
-    exercise = Exercise.find(params[:exercise_id])
-
+    exercise = Exercise.find(exercise_id) # Use exercise_id variable here
+  
     if workout_plan && exercise
       workout_plan.exercises.delete(exercise)
       render json: { message: "Exercise removed from workout plan successfully" }
@@ -49,6 +49,7 @@ class WorkoutPlansController < ApplicationController
       render json: { error: "Exercise or workout plan not found" }, status: :not_found
     end
   end
+  
 
   def destroy
     workout_plan = current_user.workout_plans.find(params[:id])

@@ -2,7 +2,7 @@ class WeightTrackingsController < ApplicationController
     before_action :set_user
   
     def index
-      weight_trackings = @user.weight_trackings
+      weight_trackings = @user.weight_trackings.order(:date)
       render json: weight_trackings
     end
     
