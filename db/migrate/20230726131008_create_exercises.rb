@@ -5,12 +5,11 @@ class CreateExercises < ActiveRecord::Migration[6.1]
       t.string :image
       t.string :exercise_type
       t.string :body_part
+      t.string :exercise_description
       t.integer :duration
       t.integer :sets
       t.integer :reps
-      t.boolean :status
       t.integer :calories_burned
-      t.date :date
 
       t.timestamps
     end

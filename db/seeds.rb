@@ -1,67 +1,802 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+exercises = [
+{
+  exercise_name: "Standing Calf Raises",
+  exercise_type: "Build Muscle",
+  exercise_description: "Stand on the edge of a platform or step, raise your heels as high as possible, and then lower them for a deep stretch. Focus on the contraction of your calf muscles at the top.",
+  image: "https://i.pinimg.com/564x/61/35/34/6135345f983a46b426c80abee39c31c5.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 15,
+  calories_burned: 250,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Seated Calf Raises",
+  exercise_type: "Build Muscle",
+  exercise_description: "Sit on a calf raise machine or bench, place a weight on your thighs, and lift your heels by pushing against the resistance. Lower your heels to feel a stretch in your calves.",
+  image: "https://i.pinimg.com/564x/73/21/f1/7321f1c186eda6b17d63b274c946ee10.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 15,
+  calories_burned: 200,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Donkey Calf Raises",
+  exercise_type: "Build Muscle",
+  exercise_description: "Use a donkey calf raise machine or have a partner sit on your back, then perform calf raises by pushing up with your toes. This exercise targets the gastrocnemius muscles.",
+  image: "https://i.pinimg.com/564x/94/05/26/940526e853253aa7fee11f7389f0612c.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 15,
+  calories_burned: 300,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Smith Machine Calf Raises",
+  exercise_type: "Build Muscle",
+  exercise_description: "Stand under a Smith machine barbell, place your shoulders under the bar, and lift your heels while keeping your knees slightly bent. Lower your heels for a stretch.",
+  image: "https://i.pinimg.com/564x/46/29/28/462928046863a02bead54b92e6fb31f5.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 15,
+  calories_burned: 250,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Leg Press Calf Raises",
+  exercise_type: "Build Muscle",
+  exercise_description: "Use a leg press machine, position your feet at the bottom of the platform, and push with your toes to lift the weight. Lower your heels below the platform for a stretch.",
+  image: "https://i.pinimg.com/564x/ee/f4/04/eef4049b9d5f3450dd4d11669d6c749b.jpg",
+ duration: "15-20 minutes",
+ sets: "3-4 sets",
+ reps: "10-15 reps",
+  calories_burned: 250,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Dumbbell Calf Raises",
+  exercise_type: "Build Muscle",
+  exercise_description: "Hold dumbbells in your hands, stand on the edge of a platform, and raise your heels while keeping your knees slightly bent. Lower your heels to feel the stretch.",
+  image: "https://i.pinimg.com/564x/9c/a8/7b/9ca87b5de6d5711419e6778f7254085d.jpg",
+ duration: "15-20 minutes",
+ sets: "3-4 sets",
+ reps: "10-15 reps",
+  calories_burned: 200,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Barbell Calf Raises",
+  exercise_type: "Build Muscle",
+  exercise_description: "Hold a barbell across your upper back, stand on a platform, and lift your heels. Lower them for a deep stretch in your calves.",
+  image: "https://i.pinimg.com/564x/11/ab/bf/11abbfd5ac50f18550ee2140308648de.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 15,
+  calories_burned: 250,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Farmer's Walk",
+  exercise_type: "Improve Endurance",
+  exercise_description: "Hold heavy dumbbells or kettlebells in each hand and walk briskly for a sets distance or time. This exercise engages your calves as stabilizers while working the entire body.",
+  image: "https://i.pinimg.com/564x/4a/4c/b8/4a4cb8c51c39cb997c3b137f9b49f930.jpg",
+ duration: 20,
+ sets: 4 ,
+ reps: 8,
+  calories_burned: 350,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Calf Raises on a Step",
+  exercise_type: "Build Muscle",
+  exercise_description: "Stand on the edge of a step, raise your heels, and lower them for a stretch. This exercise can be done with body weight or holding dumbbells for added resistance.",
+  image: "https://i.pinimg.com/564x/d1/75/10/d17510420e3fdd94370d26f4c9a1742e.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 15,
+  calories_burned: 200,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Calf Raises on a Leg Press Machine",
+  exercise_type: "Build Muscle",
+  exercise_description: "Use a leg press machine with calf raise attachment, push the platform with your toes to lift the weight, and then lower your heels for a stretch.",
+  image: "https://i.pinimg.com/564x/e8/85/13/e885130c59273ea4af4b78d1c650900c.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 15,
+  calories_burned: 250,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Jump Rope",
+  exercise_type: "Improve Endurance",
+  exercise_description: "Jump over a rope that's swung over your body. A high-intensity cardiovascular exercise that also engages your calf muscles as you jump.",
+  image: "https://i.pinimg.com/564x/bd/e9/27/bde927e767b24406e9558df6cdc008f8.jpg",
+ duration: 30,
+ sets: 5,
+ reps: 20,
+  calories_burned: 800,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Box Jumps",
+  exercise_type: "Improve Endurance",
+  exercise_description: "Jump explosively onto a box or platform from a standing position, then step or jump down. A plyometric exercise that targets your calves and lower body power.",
+  image: "https://i.pinimg.com/564x/1a/22/b9/1a22b9b3efe3a58f3a6faa4010f8c5a0.jpg",
+ duration: 30,
+ sets: 4,
+ reps: 20,
+  calories_burned: 600,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Skipping",
+  exercise_type: "Improve Endurance",
+  exercise_description: "Similar to jump rope, skip in place using a skipping rope. A fun and effective cardio exercise that engages your calves.",
+  image: "https://i.pinimg.com/564x/bb/20/e1/bb20e140e84b9d19b58eb57c8f5509f8.jpg",
+ duration: 30,
+ sets: 4,
+ reps: 20,
+  calories_burned: 800,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Calf Stretching",
+  exercise_type: "Improve Endurance",
+  exercise_description: "Stretch your calf muscles by gently pulling your toes toward your body while keeping your leg straight. This helps improve flexibility and reduce muscle tension.",
+  image: "https://i.pinimg.com/564x/50/2d/78/502d78d6a55839ace401d9815d2404aa.jpg",
+ duration: 10,
+ sets: 2,
+ reps: 8,
+  calories_burned: 8,
+  body_part: "Calves"
+},
+{
+  exercise_name: "Barbell Squats",
+  exercise_type: "Build Muscle",
+  exercise_description: "Place a barbell across your upper back, squat down by bending your knees and hips, then push through your heels to stand up. This is a fundamental lower body exercise that targets the quads.",
+  image: "https://i.pinimg.com/564x/09/00/1e/09001e5ea5b5681b9c919cf05bd71a53.jpg",
+ duration: 25,
+ sets: 4,
+ reps: 10,
+  calories_burned: 350,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Leg Press",
+  exercise_type: "Build Muscle",
+  exercise_description: "Sit on a leg press machine, push the platform away using your quads, and then lower it back down. This exercise effectively targets the quadriceps.",
+  image: "https://i.pinimg.com/564x/87/bf/3e/87bf3ea56c1c8e98f6a5d98cc1152387.jpg",
+ duration: 15,
+ sets: 4,
+ reps: 12,
+  calories_burned: 275,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Front Squats",
+  exercise_type: "Build Muscle",
+  exercise_description: "Hold a barbell across the front of your shoulders, squat down with a more upright torso, and push through your heels to stand up. This variation emphasizes the quads.",
+  image: "https://i.pinimg.com/564x/c4/69/e2/c469e2451223dc6b6e66c00359599141.jpg",
+ duration: 30,
+ sets: 4,
+ reps: 10,
+  calories_burned: 350,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Dumbbell Lunges",
+  exercise_type: "Build Muscle",
+  exercise_description: "Hold dumbbells in each hand, step forward into a lunge position, and then push back to the starting position. Lunges engage the quads and glutes.",
+  image: "https://i.pinimg.com/564x/73/9c/09/739c0943199568d7481b0b4fcbec7ea8.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 12,
+  calories_burned: 225,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Hack Squats",
+  exercise_type: "Build Muscle",
+  exercise_description: "Use a hack squat machine, position yourself with your back against the platform, and push the weight up by extending your knees. This isolates the quadriceps.",
+  image: "https://i.pinimg.com/564x/89/3c/d1/893cd16969b02d6d2436eec7452bd6c5.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 12,
+  calories_burned: 275,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Bulgarian Split Squats",
+  exercise_type: "Build Muscle",
+  exercise_description: "Stand a couple of feet in front of a bench, place one foot behind you on the bench, and lunge down until your back knee is nearly touching the ground. This exercise targets one leg at a time.",
+  image: "https://i.pinimg.com/564x/41/ee/16/41ee1677ece70a7159ca6f4e0801f207.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 12,
+  calories_burned: 225,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Box Jumps",
+  exercise_type: "Build Muscle",
+  exercise_description: "Jump explosively onto a box or platform from a standing position, then step or jump down. This plyometric exercise also engages your quadriceps.",
+  image: "https://i.pinimg.com/564x/cc/e4/f7/cce4f733c45da9188a2e987046063774.jpg",
+ duration: 25,
+ sets: 4,
+reps: 10,
+  calories_burned: 550,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Step-Ups",
+  exercise_type: "Build Muscle",
+  exercise_description: "Step onto a sturdy bench or platform, driving through the heel of the leading leg. Step down and switch legs. This exercise targets the quads and glutes.",
+  image: "https://i.pinimg.com/564x/2e/13/2c/2e132ccd917213de016c9ff55c9611b6.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 12,
+  calories_burned: 225,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Sled Push",
+  exercise_type: "Build Muscle",
+  exercise_description: "Push a weighted sled forward using your leg strength. This functional exercise engages your quads and is often used for conditioning and strength development.",
+  image: "https://i.pinimg.com/564x/eb/74/8d/eb748d3ea3671fe13a3c092dd6d41cdb.jpg",
+ duration: 20,
+ sets: 4,
+ reps: 30,
+  calories_burned: 275,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Wall Sits",
+  exercise_type: "Build Muscle",
+  exercise_description: "Lean your back against a wall and slide down until your thighs are parallel to the ground. Hold this position, engaging your quads, for a sets amount of time.",
+  image: "https://i.pinimg.com/564x/b6/c5/12/b6c5124671419d32add98fd0f7387a5b.jpg",
+ duration: 10,
+ sets: 4,
+ reps: 30,
+  calories_burned: 125,
+  body_part: "Quadriceps"
+},
+{
+  exercise_name: "Lateral Raises",
+  image: "https://www.barbellfrontraise.com/wp-content/uploads/2022/02/barbell-front-lateral-raise-810x454.jpg",
+  exercise_type: "Build Muscle",
+  body_part: "Shoulders",
+  exercise_description: "Hold dumbbells at your sides, raise them to shoulder level, and lower.",
+  duration: 15,
+  sets: 3,
+  reps: 12,
+  calories_burned: 145
+},
+{
+  exercise_name: "Arnold Press",
+  image: "https://cdn.oxygenmag.com/wp-content/uploads/2019/07/arnold-press-2.jpg",
+  exercise_type: "Build Muscle",
+  body_part: "Shoulders",
+  exercise_description: "Hold dumbbells at shoulder height, rotate and press them overhead.",
+  duration: 15,
+  sets: 3,
+  reps: 10,
+  calories_burned: 180
+},
+{
+  exercise_name: "Upright Rows",
+  image: "https://www.trainheroic.com/wp-content/uploads/2022/01/Upright-rows.jpg",
+  exercise_type: "Build Muscle",
+  body_part: "Shoulders",
+  exercise_description: "Hold a barbell or dumbbells, pull them vertically towards your chin.",
+  duration: 15,
+  sets: 3,
+  reps: 12,
+  calories_burned: 160
+},
+{
+  exercise_name: "Face Pulls",
+  image: "https://www.muscleandfitness.com/wp-content/uploads/2018/12/800-ropefacepull.jpg?w=800&h=731&crop=1&quality=86&strip=all",
+  exercise_type: "Build Muscle",
+  body_part: "Shoulders",
+  exercise_description: "Attach a rope to a high pulley, pull it towards your face, squeezing your shoulder blades.",
+  duration: 15,
+  sets: 3,
+  reps: 12,
+  calories_burned: 150
+},
+{
+  exercise_name: "Behind-the-Neck Press",
+  image: "https://www.muscleandfitness.com/wp-content/uploads/2019/10/Male-Sitting-On-Bench-Behind-The-Neck-Press.jpg?w=1109&quality=86&strip=all",
+  exercise_type: "Build Muscle",
+  body_part: "Shoulders",
+  exercise_description: "Press a barbell behind your neck, engaging rear deltoids.",
+  duration: 15,
+  sets: 3,
+  reps: 8,
+  calories_burned: 190
+},
+{
+  exercise_name: "Cable Front Raises",
+  image: "https://www.bodybuilding.com/images/2019/may/cable-moves-better-than-dumbbells-header-b-830x467.jpg",
+  exercise_type: "Build Muscle",
+  body_part: "Shoulders",
+  exercise_description: "Use a cable machine to raise weights in front of you, targeting front deltoids.",
+  duration: 15,
+  sets: 3,
+  reps: 12,
+  calories_burned: 155
+},
+{
+  exercise_name: "Handstand Push-Ups",
+  image: "https://i0.wp.com/crossfittelaviv.com/wp-content/uploads/2015/11/deficit-handstand-push-ups-stric.jpg?fit=1030%2C579&ssl=1",
+  exercise_type: "Improve Endurance",
+  body_part: "Shoulders",
+  exercise_description: "Perform push-ups in a handstand position to challenge shoulder strength.",
+  duration: 15,
+  sets: 3,
+  reps: 8,
+  calories_burned: 200
+}, 
+  {
+    exercise_name: "Plank",
+    image: "https://hips.hearstapps.com/hmg-prod/images/hdm119918mh15842-1545237096.png?crop=0.668xw:1.00xh;0.117xw,0&resize=1200:*",
+    exercise_type: "Improve Endurance",
+    body_part: "Abs",
+    exercise_description: "Hold a push-up position with forearms on the ground, engaging the core.",
+    duration: 30,
+    sets: 3,
+    reps: 10,
+    calories_burned: 10
+  },
+  {
+    exercise_name: "Bicycle Crunches",
+    image: "https://bod-blog-assets.prod.cd.beachbodyondemand.com/bod-blog/wp-content/uploads/2022/07/28153459/bicycle-crunches-960.png",
+    exercise_type: "Improve Endurance",
+    body_part: "Abs",
+    exercise_description: "Lie on your back, alternate bringing opposite elbow to knee in a cycling motion.",
+    duration: 15,
+    sets: 3,
+    reps: 20,
+    calories_burned: 40
+  },
+  {
+    exercise_name: "Russian Twists",
+    image: "https://hips.hearstapps.com/hmg-prod/images/russian-twist-sharpened-1548270008.jpg",
+    exercise_type: "Improve Endurance",
+    body_part: "Abs",
+    exercise_description: "Sit on the floor, lean back slightly, and twist your torso while holding a weight or ball.",
+    duration: 15,
+    sets: 3,
+    reps: 15,
+    calories_burned: 35
+  },
+  {
+    exercise_name: "Leg Raises",
+    image: "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk3MzIyNDgyODQyMDg0NjI5/legraises.jpg",
+    exercise_type: "Improve Endurance",
+    body_part: "Abs",
+    exercise_description: "Lie on your back, lift your legs up while keeping them straight, and lower them slowly.",
+    duration: 15,
+    sets: 3,
+    reps: 12,
+    calories_burned: 30
+  },
+  {
+    exercise_name: "Hanging Leg Raises",
+    image: "https://miro.medium.com/v2/resize:fit:1400/0*Mly7U-TaaUvMxnpW",
+    exercise_type: "Build Muscle",
+    body_part: "Abs",
+    exercise_description: "Hang from a bar and lift your legs up, targeting lower abs.",
+    duration: 15,
+    sets: 3,
+    reps: 10,
+    calories_burned: 40
+  },
+  {
+    exercise_name: "Flutter Kicks",
+    image: "https://s3assets.skimble.com/assets/2446/skimble-workout-trainer-exercise-flutter-kicks-3_iphone.jpg",
+    exercise_type: "Improve Endurance",
+    body_part: "Abs",
+    exercise_description: "Lie on your back, lift legs slightly off the ground, and alternate kicking them.",
+    duration: 30,
+    sets: 3,
+    reps: "-",
+    calories_burned: 20
+  },
+  {
+    exercise_name: "Dead Bug",
+    image: "https://mindbodygreen-res.cloudinary.com/image/upload/c_crop,x_309,y_192,w_2691,h_1512/c_fill,w_2000,h_1200,g_auto,fl_lossy,f_jpg/org/0l9h41mvekzrhgj2q.jpg",
+    exercise_type: "Lose Weight",
+    body_part: "Abs",
+    exercise_description: "Lie on your back, extend arms and legs, and lower opposite arm and leg towards the ground.",
+    duration: 15,
+    sets: 3,
+    reps: 10,
+    calories_burned: 25
+  },
+  {
+    exercise_name: "Standing Cable Woodchopper",
+    image: "https://www.mensjournal.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM3MzEyMzg4NjU0MjI1/cable-woodchop.jpg",
+    exercise_type: "Build Muscle",
+    body_part: "Abs",
+    exercise_description: "Use a cable machine to perform a diagonal chopping motion.",
+    duration: 15,
+    sets: 3,
+    reps: 12,
+    calories_burned: 30
+  },
+  {
+    exercise_name: "Side Plank",
+    image: "https://hips.hearstapps.com/hmg-prod/images/side-plank-1549646915.jpg",
+    exercise_type: "Improve Endurance",
+    body_part: "Abs",
+    exercise_description: "Lie on your side, support your body on one forearm, and hold the plank position.",
+    duration: 30,
+    sets: 3,
+    reps: "-",
+    calories_burned: 15
+  },
+  {
+    exercise_name: "Reverse Crunches",
+    image: "https://blog.squatwolf.com/wp-content/uploads/2018/08/shutterstock_193836539-min.jpg",
+    exercise_type: "Lose Weight",
+    body_part: "Abs",
+    exercise_description: "Lie on your back, lift hips off the ground, and bring knees towards your chest.",
+    duration: 15,
+    sets: 3,
+    reps: 12,
+    calories_burned: 25
+  },
+  {
+    exercise_name: "Hip Thrusts",
+    image: "https://www.verywellfit.com/thmb/6FrOEVjKGC5bzAgWm5yhiGqkkk8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/hip-thrust-exercise--1199620482-e1e7b0f530a2477487fc0006e45fd7c9.jpg",
+    exercise_type: "Build muscles",
+    body_part: "glutes",
+   exercise_description: "Sit on the floor with your upper back against a bench and a barbell across your hips. Roll the barbell over your legs and position it across your hips. Push through your heels to lift your hips off the ground while keeping your upper back on the bench. Squeeze your glutes at the top and then lower your hips back down.",
+    duration: 30,
+    sets: 3,
+   reps: 8,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Glute Bridges",
+    image: "https://hips.hearstapps.com/hmg-prod/images/glutebridge-1603107150.jpg",
+    exercise_type: "Build muscles",
+    body_part: "glutes",
+    exercise_description: "Lie on your back with your knees bent and feet flat on the ground, hip-width apart. Press through your heels and lift your hips off the ground while squeezing your glutes. Hold the top position for a second before lowering your hips back down.",
+    duration: 30,
+    sets: 3,
+    reps: 10,
+    calories_burned: 120
+  },
+  {
+    exercise_name: "Lunges and Split Squats",
+    image: "https://sportscienceinsider.com/wp-content/uploads/2022/10/Split-Squat-Vs-Lunge.png",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Step forward into a lunge or split squat position, lowering your back knee toward the ground. Keep your front knee directly above your ankle and your chest up. Push through your front heel to return to the starting position.",
+    duration: 30,
+    sets: 3,
+   reps: 8,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Romanian Deadlift (RDL)",
+    image: "https://hips.hearstapps.com/hmg-prod/images/romanian-deadlift-1595930760.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Hold a barbell or dumbbells in front of your thighs. Hinge at your hips while keeping your back straight and a slight bend in your knees. Lower the weights down while maintaining a straight back and feeling a stretch in your hamstrings. Return to the starting position by squeezing your hamstrings and glutes.",
+    duration: 30,
+    sets:3,
+    reps: 8,
+    calories_burned: 200
+  },
+  {
+    exercise_name: "Glute-Ham Raise",
+    image: "https://www.setsforsets.com/cdn/shop/articles/Glute_Ham_Raise_f3fd05a2-e4bb-4cb1-b911-4f7fbce6d05a_2000x.jpg?v=1664889925",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Use a glute-ham developer apparatus or have a partner hold your ankles. Lower your upper body toward the floor while engaging your hamstrings. Use your hamstrings and glutes to lift your body back up.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Barbell Hip Thrust",
+    image: "https://media1.popsugar-assets.com/files/thumbor/zLlA176Ka0fZ8aid3Ap6AVu1jag=/fit-in/612x612/filters:format_auto():upscale()/2018/03/29/835/n/1922729/tmp_kVfCvo_6879136d8067a956_Hip-Thrusts.jpg",
+    exercise_type: "Build muscles",
+    body_part:"glutes",
+    exercise_description: "Sit on the floor with your upper back against a bench and a loaded barbell across your hips. Roll the barbell over your legs and position it across your hips. Push through your heels to lift your hips off the ground while keeping your upper back on the bench. Squeeze your glutes at the top and then lower your hips back down.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Step-Up",
+    image: "https://bod-blog-assets.prod.cd.beachbodyondemand.com/bod-blog/wp-content/uploads/2016/07/27114723/step-up-600-demo.jpg",
+    exercise_type: "Build muscles",
+    body_part: "glutes",
+    exercise_description: "Stand in front of a bench or step. Step onto the bench with one foot and push through your heel to lift your body up. Lower yourself back down and repeat on the other leg.",
+    duration: "30",
+    sets: "3",
+    reps: "10",
+    calories_burned: "150"
+  },
+  {
+    exercise_name: "Bulgarian Split Squat",
+    image: "https://experiencelife.lifetime.life/wp-content/uploads/2021/03/Bulgarian-Split-Squat.jpg",
+    exercise_type: "Build muscles",
+    body_part:"glutes",
+    exercise_description: "Stand a few feet in front of a bench or step. Extend one leg behind you and place the top of your foot on the bench. Lower your back knee toward the ground in a lunge motion. Push through your front heel to return to the starting position.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Reverse Hyperextension",
+    image: "https://mirafit.co.uk/wp/wp-content/uploads/2023/02/man-using-a-Mirafit-M4-Reverse-Hyper-1024x683.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Lie face down on a hyperextension bench. Engage your glutes and hamstrings to lift your legs toward the ceiling. Lower them back down without letting them touch the ground.",
+    duration: 30,
+    sets: 3,
+    reps: 10,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Romanian Deadlift (RDL)",
+    image: "https://hips.hearstapps.com/hmg-prod/images/romanian-deadlift-1595930760.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Hold a barbell or dumbbells in front of your thighs. Hinge at your hips while keeping your back straight and a slight bend in your knees. Lower the weights down while maintaining a straight back and feeling a stretch in your hamstrings. Return to the starting position by squeezing your hamstrings and glutes.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 200
+  },
+  {
+    exercise_name: "Glute-Ham Raise",
+    image: "https://www.setsforsets.com/cdn/shop/articles/Glute_Ham_Raise_f3fd05a2-e4bb-4cb1-b911-4f7fbce6d05a_2000x.jpg?v=1664889925",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Use a glute-ham developer apparatus or have a partner hold your ankles. Lower your upper body toward the floor while engaging your hamstrings. Use your hamstrings and glutes to lift your body back up.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Single-Leg Deadlift",
+    image: "https://images.squarespace-cdn.com/content/v1/5d31ed671abe780001b2964d/4ac409fa-6f55-444f-b258-60a30c0b09e3/image-assets.jpeg",
+    exercise_type: "Build muscle",
+    body_part:"hamstrings",
+    exercise_description: "Hold a dumbbell in the opposite hand of the leg you are lifting. Hinge at your hips and lift one leg straight behind you while lowering the dumbbell. Maintain a straight line from head to heel and engage your hamstrings to return to the upright position.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 180
+  },
+  {
+    exercise_name: "Hamstring Curls",
+    image: "https://hips.hearstapps.com/hmg-prod/images/tech-school-hamstring-1608118544.jpg?crop=1xw:1xh;center,top&resize=640:*",
+    exercise_type: "Build muscles",
+    body_part:"hamstrings",
+    exercise_description: "Use a machine or resistance band to perform seated or lying hamstring curls. Curl your heels toward your glutes, engaging your hamstrings. Slowly lower the weight or release the resistance band back to the starting position.",
+    duration: 30,
+    sets: 3,
+    reps: 10,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Slider Hamstring Curl",
+    image: "https://i.ytimg.com/vi/kkkTfzi2gj4/maxresdefault.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Lie on your back with your feet on sliders or a towel. Lift your hips and slide your feet towards your glutes while keeping your legs straight. Extend your legs to return to the starting position.",
+    duration: 30,
+    sets: 3,
+    reps: 10,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Swiss Ball Leg Curl",
+    image: "https://cdn.shopify.com/s/files/1/1876/4703/files/Swiss_ball_leg_curls_-_form_-_shutterstock_314080352_1024x1024.jpg?v=1666187948",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Lie on your back with your feet on a Swiss ball. Lift your hips off the ground and roll the ball toward your glutes using your hamstrings. Slowly extend your legs to roll the ball back out.",
+    duration: 30,
+    sets: 3,
+    reps: 10,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Nordic Hamstring Curl (Partner or Band-Assisted)",
+    image: "https://www.bodybuildingmealplan.com/wp-content/uploads/Nordic-Hamstring-Curl-For-Beginners.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Kneel on a mat with your ankles secured. Slowly lower your upper body toward the floor by engaging your hamstrings. Use your hamstrings and glutes to lift your body back up.",
+    duration: 30,
+    sets: 3,
+    reps: 6,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Sumo Deadlift",
+    image: "https://i.ytimg.com/vi/cDlOSfu-zHY/maxresdefault.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Perform a deadlift with a wide stance, targeting both hamstrings and inner thighs. Keep your feet wider than hip-width apart and grip the barbell with your hands inside your knees.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 200
+  },
+  {
+    exercise_name: "Good Mornings",
+   image:"https://www.mensjournal.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM1Nzc3MjA2MTUwNjYx/kbgoodmorning.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Hold a barbell across your upper back, similar to squat positioning. Hinge at your hips while keeping your back straight. Lower your upper body forward until you feel a stretch in your hamstrings. Return to the upright position by squeezing your hamstrings and glutes.",
+    duration: 30,
+    sets: 3,
+    reps: 8,
+    calories_burned: 200
+  },
+  {
+    exercise_name: "Seated Leg Curl",
+    image: "https://thefitnessmaverick.com/wp-content/uploads/2023/01/Image-12-01-2023-at-10.43-1024x819.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    "exercise_description": "Use a leg curl machine to perform seated hamstring curls. Adjust the machine to fit your body, curling your heels toward your glutes. Slowly lower the weight back down.",
+    duration: 30,
+    sets: 3,
+    reps: 10,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Stiff-Legged Deadlift",
+    image: "https://cdn.muscleandstrength.com/sites/default/files/stiff-leg-deadlifts.jpg",
+    exercise_type: "Build muscles",
+    body_part: "hamstrings",
+    exercise_description: "Hold a barbell or dumbbells in front of your thighs. Hinge at your hips while keeping your back straight and a slight bend in your knees. Lower the weights down while maintaining a straight back and feeling a stretch in your hamstrings. Return to the starting position by squeezing your hamstrings and glutes.",
+    duration: 30,
+    sets:3,
+    reps: 8,
+    calories_burned: 200
+  },
+  {
+    exercise_name: "Side-to-Side Landmine Press for Chest",
+    image: "https://i.pinimg.com/564x/02/be/32/02be322d1502e91dab576668ef3281f6.jpg",
+    exercise_type: "Build Muscle",
+    body_part: "Chest",
+    exercise_description: "The Side-to-Side Landmine Press is a chest exercise that involves pressing a barbell attached to a landmine apparatus. It targets the chest muscles while also engaging the shoulders and triceps. To perform the exercise, stand perpendicular to the landmine with your feet shoulder-width apart. Hold the barbell at chest height with one hand, and then press it upward and slightly across your body. Lower the barbell back down and repeat on the other side.",
+    duration: 15,
+    sets: 3,
+    reps: 10,
+    calories_burned: 300
+  },
+  {
+    exercise_name: "Pause Push-Up for Chest",
+    image: "https://i.pinimg.com/564x/52/ec/2a/52ec2a3ce7e573813e75ea0d7547a01f.jpg",
+    exercise_type: "Build Muscle",
+    body_part: "Chest",
+    exercise_description: "The Pause Push-Up is a variation of the classic push-up that adds an isometric hold at the bottom position. Start in a standard push-up position with your hands slightly wider than shoulder-width apart. Lower your body towards the ground, and when your chest is about an inch above the floor, pause and hold for a few seconds. Then, push yourself back up to the starting position. This exercise engages the chest, shoulders, triceps, and core muscles.",
+    duration: 15,
+    sets: 3,
+    reps: 12,
+    calories_burned: 260
+  },
+  {
+    exercise_name: "Barbell Decline Bench Press for Chest",
+    image: "https://i.pinimg.com/564x/ea/df/e1/eadfe1016b138be73cf8eb78466ea779.jpg",
+    exercise_type: "Build Muscle",
+    body_part: "Chest",
+    exercise_description: "The Barbell Decline Bench Press is a compound chest exercise that targets the lower pectoral muscles. Lie down on a decline bench with your head lower than your hips. Grip the barbell slightly wider than shoulder-width apart and lift it off the rack. Lower the barbell to your lower chest, then push it back up to the starting position. This exercise helps develop strength and size in the lower chest area.",
+    duration: 6,
+    sets: 4,
+    reps: 8,
+    calories_burned: 150
+  },
+  {
+    exercise_name: "Chest Flys for Chest",
+    image: "https://i.pinimg.com/564x/92/8a/66/928a66d4201425e299eebc7088db0d67.jpg",
+    exercise_type: "Build Muscle",
+    body_part: "Chest",
+    exercise_description: "Chest Flys, also known as Pec Flys, are an isolation exercise that targets the pectoral muscles. Begin by lying on a flat bench with a dumbbell in each hand. Extend your arms straight above your chest, palms facing each other. Lower your arms in a controlled manner, keeping a slight bend in your elbows, until you feel a stretch in your chest. Then, bring the dumbbells back up to the starting position by squeezing your chest muscles. Chest Flys help develop the outer and middle regions of the chest.",
+    duration: 7,
+    sets: 4,
+    reps: 10,
+    calories_burned: 212
+  },
+  {
+    exercise_name: "Close Grip Push-Up for Chest",
+    image: "https://i.pinimg.com/564x/28/54/03/285403222aa50adffa452360e1818da0.jpg",
+    exercise_type: "Improve Endurance",
+    body_part: "Chest",
+    exercise_description: "The Close Grip Push-Up is a variation of the traditional push-up that places more emphasis on the triceps and inner chest muscles. Start in a push-up position with your hands placed close together, directly under your shoulders. Keep your elbows tucked close to your body as you lower yourself towards the ground, and then push back up to the starting position. This exercise helps strengthen the chest, triceps, and shoulders while targeting the inner pectoral muscles.",
+    duration: 12,
+    sets: 3,
+    reps: 12,
+    calories_burned: 340
+  },
+  {
+    exercise_name: "Svend Press for Chest",
+    image: "https://i.pinimg.com/564x/ef/93/42/ef9342e00a07f66e93a1c91c458a8baa.jpg",
+    exercise_type: "Lose Weight",
+    body_part: "Chest",
+    exercise_description: "The Svend Press is an isometric exercise that primarily targets the chest muscles. To perform the Svend Press, hold two small plates or dumbbells together in front of your chest, with your palms facing each other. Squeeze the plates or dumbbells together as hard as you can, engaging your chest muscles. Hold this contraction for a set duration before releasing. The Svend Press helps to develop chest muscle definition and strength.",
+    duration: 20,
+    sets: 3,
+    reps: 8,
+    calories_burned: 200
+  },
+  {
+    exercise_name: "Dumbbell Floor Press for Chest",
+    image: "https://i.pinimg.com/564x/c4/df/f8/c4dff89fd7548b9daa8b31cce5450896.jpg",
+    exercise_type: "Build Muscle",
+    body_part: "Chest",
+    exercise_description: "The Dumbbell Floor Press is a chest exercise that emphasizes the triceps and upper chest muscles. Lie on your back on the floor or a bench with your knees bent and feet flat. Hold a dumbbell in each hand above your chest, with your palms facing forward. Lower the dumbbells until your upper arms lightly touch the floor, and then push them back up to the starting position. This exercise is effective for building chest strength and stability.",
+    duration: 12,
+    sets: 4,
+    reps: 10,
+    calories_burned: 350
+  },
+  {
+    exercise_name: "Plyo Push-Up for Chest",
+    image: "https://i.pinimg.com/564x/53/dc/09/53dc09828b6129c53c882c831b5708ad.jpg",
+    exercise_type: "Lose Weight",
+    body_part: "Chest",
+    exercise_description: "The Plyo Push-Up, also known as the Plyometric Push-Up, is an explosive variation of the traditional push-up that targets the chest, shoulders, and triceps. Start in a standard push-up position. Lower your body to the ground, and as you push back up, use enough force to lift your hands off the ground. Land softly and immediately go into the next repetition. This exercise helps build power and explosiveness in the upper body.",
+    duration: "nil",
+    sets: 3,
+    reps: 8,
+    calories_burned: "nil"
+  },
+  {
+    exercise_name: "Chaos Push-Up for Chest",
+    image: "https://i.pinimg.com/564x/30/26/62/302662ef31b2edd4edb09e3f03e9d438.jpg",
+    exercise_type: "Build Muscle",
+    body_part: "Chest",
+    exercise_description: "The Chaos Push-Up is a challenging variation of the traditional push-up that adds an element of instability. Begin in a standard push-up position with your hands on two separate objects, such as medicine balls or dumbbells. As you lower your body, your hands will move independently, creating an unstable surface. Push back up to the starting position. This exercise engages the chest, shoulders, and core while improving stability and coordination.",
+    duration: 9,
+    sets: 3,
+    reps: 10,
+    calories_burned: 400
+  },
+  {
+    exercise_name: "Cable Iron Cross for Chest",
+    image: "https://i.pinimg.com/564x/46/c5/77/46c577c9cf2d3492cefda3fd3b0fe9e4.jpg",
+    exercise_type: "Improve Endurance",
+    body_part: "Chest",
+    exercise_description: "The Cable Iron Cross is an isolation exercise that targets the chest muscles. Attach stirrup handles to the high-pulley cables on a cable crossover machine. Stand in the center of the machine, holding a handle in each hand. Start with your arms extended out to the sides at shoulder height. Pull the handles together in front of your body, crossing them slightly while contracting your chest muscles. Slowly return to the starting position. This exercise helps to shape and define the chest.",
+    duration: 10,
+    sets: 4,
+    reps: 12,
+    calories_burned: 180
+  },
+  {
+    exercise_name: "Dips for Chest",
+    image: "https://i.pinimg.com/564x/97/38/a9/9738a93c49d5ca958e4a63ab9e820277.jpg",
+    exercise_type: "Lose Weight",
+    body_part: "Chest",
+    exercise_description: "Dips are a compound bodyweight exercise that targets the chest, triceps, and shoulders. To perform dips, find a parallel bar or dip station. Grip the bars with your palms facing down and your arms fully extended. Lower your body by bending your elbows, keeping your torso upright. Dip down until your shoulders are below your elbows, and then push yourself back up to the starting position. Dips are effective for building strength and muscle in the chest area.",
+    duration: 10,
+    sets: 3,
+    reps: 10,
+    calories_burned: 305
+  }
 
 
-require 'faker'
-
-# Create fake exercises
-15.times do
-  Exercise.create!(
-    exercise_name: Faker::Sports::Football.position,
-    image: "https://i.pinimg.com/564x/43/da/17/43da173d622219639a4334e1e8315e0c.jpg",
-    exercise_type: Faker::Lorem.word,
-    body_part: Faker::Lorem.word,
-    duration: Faker::Number.between(from: 10, to: 60),
-    sets: Faker::Number.between(from: 1, to: 5),
-    reps: Faker::Number.between(from: 5, to: 20),
-    status: [true, false].sample,
-    calories_burned: Faker::Number.between(from: 50, to: 500)
-  )
-  puts "complete seeding exercise"
+]
+exercises.each do |exercise_data|
+  Exercise.create!(exercise_data)
 end
 
-# Create fake users
-5.times do
-  User.create!(
-    username: Faker::Internet.unique.username,
-    email: Faker::Internet.unique.email,
-    password_digest: BCrypt::Password.create("password"), # Manually hash the password
-    age: Faker::Number.between(from: 18, to: 60),
-    gender: Faker::Gender.binary_type,
-    height: Faker::Number.between(from: 150, to: 200),
-    initial_weight: Faker::Number.between(from: 50, to: 100),
-    target_weight: Faker::Number.between(from: 45, to: 90)
-  )
-  puts "complete seeding user"
-end
+puts "Seeded exercises data"
 
-# Create fake weight tracking data
-users = User.all
-users.each do |user|
-  5.times do
-    WeightTracking.create!(
-      user_id: user.id,
-      weight: Faker::Number.between(from: 50, to: 100),
-      date: Faker::Date.backward(days: 30)
-    )
-    puts "complete seeding weight tracking"
-  end
-end
-
-# Create fake workout plans
-users.each do |user|
-  5.times do
-    exercise = Exercise.all.sample
-    WorkoutPlan.create!(
-      user_id: user.id,
-      exercise_id: exercise.id,
-      date: Faker::Date.forward(days: 15)
-    )
-    puts "complete seeding workout plan"
-  end
-end
